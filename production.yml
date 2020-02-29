@@ -1,0 +1,32 @@
+version: "3.2"
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - ./backend:/app/backend
+    ports:
+      - "8000:8000"
+    command: python3 manage.py runserver 0.0.0.0:8000
+    links:
+      - mongo
+  
+  mongo:
+    image: mongo:latest
+    container_name: "mongo"
+    environment:
+      - MONGO_DATA_DIR="/data/db"
+    volumes:
+      - ./data/dbmongo:/data/db
+    ports:
+      - "27017:27017"
+    command: mongod
+  
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - backend
+    command: npm start  
