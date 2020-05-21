@@ -20,7 +20,8 @@ Must have the following features:
 ## Front end, use this stack:
 * Javascript:
   * React
-  * redux
+  * Redux
+  * Sagas
   
 * HTML/CSS material
 
@@ -32,9 +33,3 @@ Must have the following features:
 
 ## Platform:
 * Run on heroku free plan, or whereever you like but reachable from anywhere.
-
-
-# To apply for a job just... 
-
-* fork this repo
-* create a PR with the URL to test try it.
